@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Skypack CDN for production, NPM for development. It's that simple.",
   "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HexaField/snowpack-plugin-skypack-replacer.git"
