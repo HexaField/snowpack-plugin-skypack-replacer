@@ -2,6 +2,8 @@
 
 Replaces your imports with skypack CDN
 
+`npm i --save-dev snowpack-plugin-skypack-replacer`
+
 ## WARNING! USE AT OWN RISK
 
 This package has not been tested extensively. Do not expect it to work for every situation. Feel free to create an issue or PR in the case you have problems, solutions, ideas or feature requests. Happy caching!
