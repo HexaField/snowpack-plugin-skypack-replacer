@@ -1,6 +1,6 @@
 {
   "name": "snowpack-plugin-skypack-replacer",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Skypack CDN for production, NPM for development. It's that simple.",
   "main": "index.js",
   "repository": {
