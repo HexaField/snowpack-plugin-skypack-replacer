@@ -1,19 +1,17 @@
-module.exports = function (snowpackConfig, pluginOptions) {
+const fs = require('fs');
 
+module.exports = function (snowpackConfig, options) {
   const cdn = 'https://cdn.skypack.dev/';
-  
   return {
     name: 'snowpack-plugin-skypack-replacer',
-    async transform({fileExt, contents, isDev}) { 
-      
+    async transform({fileExt, contents, isDev}) {
       if(isDev) return;
-      const { extensions, modules } = pluginOptions;
-      if (!extensions.includes(fileExt) || !contents) return;
+      const dependencies = options.dependencies || JSON.parse(fs.readFileSync('./package.json')).dependencies;
+      const extensions = options.extensions || ['.js', '.jsx', '.ts', '.tsx'];
+      if (!extensions.includes(fileExt) || !contents || !dependencies) return;
 
-      const keys = Object.keys(modules);
-      const values = Object.values(modules);
-      
-      // console.log(contents.split('\n').filter((line) => line.includes('import')));
+      const keys = Object.keys(dependencies);
+      const values = Object.values(dependencies);
       keys.forEach((key, i) => {
         contents = contents.replace('from \''+key+'\'', 'from \'' + cdn + key + '@' + values[i]+'\'');
         contents = contents.replace('from\''+key+'\'', 'from\'' + cdn + key + '@' + values[i]+'\'');
@@ -23,8 +21,6 @@ module.exports = function (snowpackConfig, pluginOptions) {
         contents = contents.replace('import('+key+')', 'import(' + cdn + key + '@' + values[i]+')');
         contents = contents.replace('import ('+key+')', 'import (' + cdn + key + '@' + values[i]+')');
       });
-      // console.log(contents.split('\n').filter((line) => line.includes('import')));
-
       return contents;
     }
   };

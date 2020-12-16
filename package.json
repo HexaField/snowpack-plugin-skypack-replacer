@@ -4,17 +4,26 @@
   "description": "Skypack CDN for production, NPM for development. It's that simple.",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HexaField/snowpack-plugin-skypack-replacer.git"
   },
-  "keywords": [],
-  "author": "HexaField",
+  "keywords": [
+    "snowpack",
+    "snowpack-plugin"
+  ],
+  "authors": [
+    "HexaField",
+    "gkiely"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HexaField/snowpack-plugin-skypack-replacer/issues"
   },
-  "homepage": "https://github.com/HexaField/snowpack-plugin-skypack-replacer#readme"
+  "homepage": "https://github.com/HexaField/snowpack-plugin-skypack-replacer#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
