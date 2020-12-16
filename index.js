@@ -8,7 +8,7 @@ module.exports = function (snowpackConfig, options) {
       if(isDev) return;
       const dependencies = options.dependencies || JSON.parse(fs.readFileSync('./package.json')).dependencies;
       const extensions = options.extensions || ['.js', '.jsx', '.ts', '.tsx'];
-      if (!extensions.includes(fileExt) || !contents) return;
+      if (!extensions.includes(fileExt) || !contents || !dependencies) return;
 
       const keys = Object.keys(dependencies);
       const values = Object.values(dependencies);
