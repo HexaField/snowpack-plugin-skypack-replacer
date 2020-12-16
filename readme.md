@@ -16,7 +16,7 @@ Second disclaimer: [this seems like it will soon be an internal feature to skypa
 "plugins": [
   [
     "snowpack-plugin-skypack-replacer", {
-      "modules": {
+      "dependencies": {
         "react-dom": "^16.13.1",
         "react": "^16.13.1"
       },
